@@ -20,12 +20,22 @@ html {
 }
 
 body {
-    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Myriad Pro', 'NanumSquare', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--text-dark);
     line-height: 1.7;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* 한글 전용 폰트 설정 */
+body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea {
+    font-family: 'Myriad Pro', 'NanumSquare', -apple-system, sans-serif;
+}
+
+/* 한글에만 나눔스퀘어 적용 */
+:lang(ko) {
+    font-family: 'NanumSquare', -apple-system, sans-serif;
 }
 
 /* Simple Page Layout */
