@@ -169,12 +169,17 @@ body {
     color: var(--color-gray-500);
 }
 
-.about-content h2 {
-    font-size: 36px;
-    font-weight: 300;
-    letter-spacing: -0.01em;
-    color: var(--color-black);
+.about-logo {
+    width: 200px;
+    height: auto;
     margin-bottom: 32px;
+}
+
+.about-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: left center;
 }
 
 .about-content p {
@@ -338,8 +343,8 @@ body {
         font-size: 42px;
     }
 
-    .about-content h2 {
-        font-size: 32px;
+    .about-logo {
+        width: 180px;
     }
 
     .contact-item a {
@@ -404,8 +409,8 @@ body {
         margin-bottom: 40px;
     }
 
-    .about-content h2 {
-        font-size: 28px;
+    .about-logo {
+        width: 150px;
     }
 
     .about-content p,
@@ -444,8 +449,8 @@ body {
         font-size: 26px;
     }
 
-    .about-content h2 {
-        font-size: 24px;
+    .about-logo {
+        width: 120px;
     }
 
     .about-content p,
