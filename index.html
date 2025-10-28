@@ -8,15 +8,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
 </head>
 <body>
-    <!-- Fixed Logo -->
+    <!-- Header with Logo and Navigation -->
     <header class="header">
-        <div class="logo">
-            <img src="web_logo.png" alt="readidea">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#hero">
+                        <img src="web_logo.png" alt="readidea">
+                    </a>
+                </div>
+                <nav class="nav">
+                    <a href="#about">About</a>
+                    <a href="#vision">Vision</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-content">
             <h1 class="hero-title">
                 자연의 언어를 읽고<br>
@@ -28,7 +39,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="about">
+    <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-label">
@@ -47,7 +58,7 @@
     </section>
 
     <!-- Vision Section -->
-    <section class="vision">
+    <section class="vision" id="vision">
         <div class="container">
             <div class="vision-grid">
                 <div class="vision-label">
@@ -75,7 +86,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-label">
