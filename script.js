@@ -1,34 +1,58 @@
-// Simple fade-in animation on page load
-window.addEventListener('load', () => {
-    const container = document.querySelector('.contact-container');
-    if (container) {
-        container.style.opacity = '0';
-        container.style.transform = 'translateY(20px)';
-        container.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-
-        setTimeout(() => {
-            container.style.opacity = '1';
-            container.style.transform = 'translateY(0)';
-        }, 100);
-    }
+// Smooth scroll behavior
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
 });
 
-// Email link click tracking (optional)
-const emailLink = document.querySelector('a[href^="mailto"]');
-if (emailLink) {
-    emailLink.addEventListener('click', () => {
-        console.log('Email link clicked');
-    });
-}
+// Fade-in animation on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
 
-// Kakao link click tracking (optional)
-const kakaoLink = document.querySelector('.kakao-link');
-if (kakaoLink) {
-    kakaoLink.addEventListener('click', () => {
-        console.log('KakaoTalk open chat link clicked');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
     });
-}
+}, observerOptions);
+
+// Observe sections
+document.querySelectorAll('.vision-section, .mission-section, .contact-section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    observer.observe(section);
+});
+
+// Scroll down indicator auto-hide
+let lastScroll = 0;
+const scrollIndicator = document.querySelector('.scroll-down');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (scrollIndicator) {
+        if (currentScroll > 100) {
+            scrollIndicator.style.opacity = '0';
+        } else {
+            scrollIndicator.style.opacity = '1';
+        }
+    }
+
+    lastScroll = currentScroll;
+});
 
 // Console branding
-console.log('%c🌿 readidea', 'color: #c9a961; font-size: 20px; font-weight: bold;');
-console.log('%c건강한 내일을 위한 선택', 'color: #1a1a1a; font-size: 12px;');
+console.log('%creadidea', 'color: #000; font-size: 24px; font-weight: 300; letter-spacing: 0.1em;');
+console.log('%c건강한 내일을 위한 선택', 'color: #737373; font-size: 12px; font-weight: 300;');

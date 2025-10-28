@@ -67,9 +67,12 @@ Personal Access Token이 필요합니다:
 ## 🎨 기술 스택
 
 - HTML5
-- CSS3 (미니멀 디자인)
+- CSS3 (블랙 & 화이트 미니멀 디자인)
 - Vanilla JavaScript
-- Google Fonts (Noto Sans KR)
+- 폰트:
+  - **영어**: Myriad Pro
+  - **한글**: 나눔스퀘어 (NanumSquare)
+  - CDN: https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css
 
 ## 📱 연락처
 

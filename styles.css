@@ -6,13 +6,17 @@
 }
 
 :root {
-    --primary-color: #1a1a1a;
-    --accent-color: #c9a961;
-    --text-dark: #1a1a1a;
-    --text-light: #737373;
-    --text-muted: #a3a3a3;
-    --bg-light: #fafaf9;
-    --border-light: #e7e5e4;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray-100: #f5f5f5;
+    --color-gray-200: #e5e5e5;
+    --color-gray-300: #d4d4d4;
+    --color-gray-400: #a3a3a3;
+    --color-gray-500: #737373;
+    --color-gray-600: #525252;
+    --color-gray-700: #404040;
+    --color-gray-800: #262626;
+    --color-gray-900: #171717;
 }
 
 html {
@@ -21,300 +25,395 @@ html {
 
 body {
     font-family: 'Myriad Pro', 'NanumSquare', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--text-dark);
-    line-height: 1.7;
+    color: var(--color-black);
+    line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: var(--color-white);
 }
 
-/* 한글 전용 폰트 설정 */
-body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea {
-    font-family: 'Myriad Pro', 'NanumSquare', -apple-system, sans-serif;
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px;
 }
 
-/* 한글에만 나눔스퀘어 적용 */
-:lang(ko) {
-    font-family: 'NanumSquare', -apple-system, sans-serif;
-}
-
-/* Simple Page Layout */
-.simple-page {
-    min-height: 100vh;
-    background: var(--bg-light);
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-200);
 }
 
-.contact-page {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.contact-container {
-    background: #ffffff;
-    border: 1px solid var(--border-light);
-    padding: 80px 60px;
-}
-
-/* Brand Header */
-.brand-header {
+.hero-content {
     text-align: center;
-    margin-bottom: 80px;
-    padding-bottom: 60px;
-    border-bottom: 1px solid var(--border-light);
 }
 
-.brand-name {
-    font-size: 36px;
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-placeholder {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-gray-200);
+    background: var(--color-white);
+    transition: all 0.3s ease;
+}
+
+.logo-placeholder:hover {
+    border-color: var(--color-black);
+}
+
+.logo-text {
+    font-size: 48px;
     font-weight: 300;
-    color: var(--primary-color);
-    margin-bottom: 12px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    color: var(--color-black);
     text-transform: lowercase;
 }
 
-.brand-tagline {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-light);
-    letter-spacing: 0.03em;
+/* Scroll Down Indicator */
+.scroll-down {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* Contact Main Section */
-.contact-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+.scroll-down span {
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: var(--color-black);
+    position: relative;
+    animation: scrollAnim 2s infinite;
+}
+
+@keyframes scrollAnim {
+    0%, 100% {
+        opacity: 0;
+        height: 0;
+    }
+    50% {
+        opacity: 1;
+        height: 60px;
+    }
+}
+
+/* Vision Section */
+.vision-section {
+    padding: 180px 0;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.vision-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.vision-title {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-gray-500);
     margin-bottom: 80px;
 }
 
-.contact-info-section h2 {
-    font-size: 24px;
+.vision-statement {
+    font-size: 56px;
     font-weight: 300;
-    color: var(--primary-color);
-    margin-bottom: 40px;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--color-black);
+    margin-bottom: 60px;
+}
+
+.vision-description {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-gray-600);
     letter-spacing: -0.01em;
 }
 
-.info-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+/* Mission Section */
+.mission-section {
+    padding: 180px 0;
+    background: var(--color-gray-100);
 }
 
-.info-block {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--border-light);
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-gray-200);
+    border: 1px solid var(--color-gray-200);
 }
 
-.info-block:last-child {
-    border-bottom: none;
+.mission-item {
+    background: var(--color-white);
+    padding: 80px 60px;
+    text-align: center;
+    transition: all 0.4s ease;
 }
 
-.info-label {
-    font-size: 11px;
+.mission-item:hover {
+    background: var(--color-black);
+}
+
+.mission-item:hover h3,
+.mission-item:hover p {
+    color: var(--color-white);
+}
+
+.mission-item h3 {
+    font-size: 20px;
     font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: -0.01em;
+    color: var(--color-black);
+    margin-bottom: 24px;
+    transition: color 0.4s ease;
 }
 
-.info-value {
-    font-size: 16px;
-    color: var(--text-dark);
+.mission-item p {
+    font-size: 15px;
     font-weight: 300;
+    line-height: 1.7;
+    color: var(--color-gray-600);
+    letter-spacing: -0.01em;
+    transition: color 0.4s ease;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 180px 0;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-gray-200);
+}
+
+.contact-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-title {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-gray-500);
+    margin-bottom: 80px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.email-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-label {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gray-400);
+}
+
+.contact-value {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    color: var(--color-black);
     text-decoration: none;
     transition: color 0.3s ease;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 4px;
 }
 
-a.info-value:hover {
-    color: var(--accent-color);
+.contact-value:hover {
+    color: var(--color-gray-600);
+    border-bottom-color: var(--color-gray-600);
 }
 
-/* Kakao Section */
-.kakao-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.kakao-contact {
+    margin-top: 20px;
 }
 
-.kakao-wrapper {
-    text-align: center;
-    padding: 50px 40px;
-    border: 1px solid var(--border-light);
-    background: var(--bg-light);
-    width: 100%;
-    transition: border-color 0.3s ease;
-}
-
-.kakao-wrapper:hover {
-    border-color: var(--accent-color);
-}
-
-.kakao-icon-wrapper {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 32px;
-    border: 1px solid var(--border-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.kakao-wrapper:hover .kakao-icon-wrapper {
-    border-color: #FEE500;
-}
-
-.kakao-icon-wrapper svg {
-    width: 36px;
-    height: 36px;
-    fill: var(--text-dark);
-    transition: fill 0.3s ease;
-}
-
-.kakao-wrapper:hover .kakao-icon-wrapper svg {
-    fill: #FEE500;
-}
-
-.kakao-wrapper h3 {
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--text-dark);
-    margin-bottom: 12px;
-    letter-spacing: -0.01em;
-}
-
-.kakao-wrapper p {
-    font-size: 13px;
-    color: var(--text-light);
-    margin-bottom: 32px;
-    font-weight: 300;
-}
-
-.kakao-link {
+.kakao-btn {
     display: inline-block;
-    padding: 14px 36px;
-    background: #FEE500;
-    color: #3C1E1E;
-    text-decoration: none;
+    padding: 12px 32px;
     font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--color-black);
+    text-decoration: none;
+    border: 1px solid var(--color-black);
+    background: transparent;
     transition: all 0.3s ease;
-    border: 1px solid #FEE500;
 }
 
-.kakao-link:hover {
-    background: #3C1E1E;
-    color: #FEE500;
-    transform: translateY(-2px);
+.kakao-btn:hover {
+    background: var(--color-black);
+    color: var(--color-white);
 }
 
 /* Footer */
-.simple-footer {
-    text-align: center;
-    padding-top: 60px;
-    border-top: 1px solid var(--border-light);
+.footer {
+    padding: 60px 0;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-gray-200);
 }
 
-.simple-footer p {
-    font-size: 12px;
-    color: var(--text-muted);
+.footer .container {
+    text-align: center;
+}
+
+.footer p {
+    font-size: 11px;
     font-weight: 300;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.1em;
+    color: var(--color-gray-400);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .contact-container {
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 40px;
+    }
+
+    .logo-placeholder {
+        width: 300px;
+        height: 300px;
+    }
+
+    .logo-text {
+        font-size: 36px;
+    }
+
+    .vision-section,
+    .mission-section,
+    .contact-section {
+        padding: 120px 0;
+    }
+
+    .vision-statement {
+        font-size: 42px;
+    }
+
+    .vision-description {
+        font-size: 16px;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-item {
         padding: 60px 40px;
     }
 
-    .brand-header {
-        margin-bottom: 60px;
-        padding-bottom: 40px;
+    .contact-value {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 24px;
     }
 
-    .brand-name {
+    .logo-placeholder {
+        width: 240px;
+        height: 240px;
+    }
+
+    .logo-text {
         font-size: 28px;
     }
 
-    .contact-main {
-        grid-template-columns: 1fr;
-        gap: 60px;
+    .vision-section,
+    .mission-section,
+    .contact-section {
+        padding: 100px 0;
+    }
+
+    .vision-title,
+    .contact-title {
         margin-bottom: 60px;
     }
 
-    .kakao-wrapper {
-        padding: 40px 30px;
+    .vision-statement {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .vision-description {
+        font-size: 15px;
+    }
+
+    .mission-item {
+        padding: 50px 30px;
+    }
+
+    .mission-item h3 {
+        font-size: 18px;
+    }
+
+    .mission-item p {
+        font-size: 14px;
+    }
+
+    .contact-value {
+        font-size: 20px;
+    }
+
+    .kakao-btn {
+        padding: 10px 24px;
+        font-size: 12px;
     }
 }
 
 @media (max-width: 480px) {
-    .simple-page {
-        padding: 20px 16px;
-    }
-
-    .contact-container {
-        padding: 40px 24px;
-    }
-
-    .brand-header {
-        margin-bottom: 48px;
-        padding-bottom: 32px;
-    }
-
-    .brand-name {
+    .vision-statement {
         font-size: 24px;
     }
 
-    .brand-tagline {
-        font-size: 13px;
+    .vision-description {
+        font-size: 14px;
     }
 
-    .contact-info-section h2 {
-        font-size: 20px;
-        margin-bottom: 32px;
+    .contact-value {
+        font-size: 18px;
+        word-break: break-all;
     }
 
-    .contact-main {
-        gap: 48px;
-        margin-bottom: 48px;
+    .scroll-down {
+        bottom: 40px;
     }
 
-    .kakao-wrapper {
-        padding: 32px 24px;
-    }
-
-    .kakao-icon-wrapper {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 24px;
-    }
-
-    .kakao-icon-wrapper svg {
-        width: 30px;
-        height: 30px;
-    }
-
-    .kakao-wrapper h3 {
-        font-size: 16px;
-    }
-
-    .kakao-link {
-        padding: 12px 28px;
-        font-size: 12px;
-    }
-
-    .simple-footer {
-        padding-top: 48px;
+    .scroll-down span {
+        height: 40px;
     }
 }
