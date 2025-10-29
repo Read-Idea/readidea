@@ -35,6 +35,25 @@ if (hamburger && mobileMenu) {
     });
 }
 
+// Dark Mode Toggle
+const themeToggle = document.querySelector('.theme-toggle');
+const htmlElement = document.documentElement;
+
+// Load saved theme preference
+const savedTheme = localStorage.getItem('theme') || 'light';
+htmlElement.setAttribute('data-theme', savedTheme);
+
+// Theme toggle functionality
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+}
+
 // Fade-in animation on scroll
 const observerOptions = {
     threshold: 0.1,
