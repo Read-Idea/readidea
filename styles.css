@@ -217,11 +217,127 @@ body.menu-open {
     justify-content: center;
     background: var(--color-white);
     padding: 0 60px;
+    overflow: hidden;
 }
 
+/* Logo Animation */
+.logo-animation-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.logo-part {
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.logo-part img {
+    width: 300px;
+    height: 100px;
+    object-fit: contain;
+}
+
+/* Left part (Read) */
+.logo-left {
+    clip-path: inset(0 50% 0 0);
+    animation: snakeLeft 2.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+}
+
+.logo-left img {
+    object-position: left center;
+}
+
+/* Right part (idea) */
+.logo-right {
+    clip-path: inset(0 0 0 50%);
+    animation: snakeRight 2.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+}
+
+.logo-right img {
+    object-position: right center;
+}
+
+/* Snake-like movement from left */
+@keyframes snakeLeft {
+    0% {
+        transform: translate(-800px, -200px) rotate(-15deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    30% {
+        transform: translate(-400px, -100px) rotate(10deg);
+    }
+    50% {
+        transform: translate(-200px, 50px) rotate(-8deg);
+    }
+    70% {
+        transform: translate(-100px, -20px) rotate(5deg);
+    }
+    100% {
+        transform: translate(-75px, 0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Snake-like movement from right */
+@keyframes snakeRight {
+    0% {
+        transform: translate(800px, 200px) rotate(15deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    30% {
+        transform: translate(400px, 100px) rotate(-10deg);
+    }
+    50% {
+        transform: translate(200px, -50px) rotate(8deg);
+    }
+    70% {
+        transform: translate(100px, 20px) rotate(-5deg);
+    }
+    100% {
+        transform: translate(75px, 0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Fade out animation container after merge */
+.logo-animation-container.fade-out {
+    animation: fadeOut 0.8s ease forwards;
+    animation-delay: 2.5s;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Hero content - hidden initially, fades in after logo animation */
 .hero-content {
     text-align: center;
     max-width: 900px;
+    opacity: 0;
+    animation: fadeInContent 1s ease forwards;
+    animation-delay: 3.3s;
+}
+
+@keyframes fadeInContent {
+    to {
+        opacity: 1;
+    }
 }
 
 .hero-title {
@@ -534,6 +650,63 @@ body.menu-open {
         margin-bottom: 40px;
     }
 
+    /* Logo animation adjustments for mobile */
+    .logo-part {
+        width: 200px;
+        height: 67px;
+    }
+
+    .logo-part img {
+        width: 200px;
+        height: 67px;
+    }
+
+    @keyframes snakeLeft {
+        0% {
+            transform: translate(-500px, -150px) rotate(-15deg);
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        30% {
+            transform: translate(-300px, -80px) rotate(10deg);
+        }
+        50% {
+            transform: translate(-150px, 40px) rotate(-8deg);
+        }
+        70% {
+            transform: translate(-70px, -15px) rotate(5deg);
+        }
+        100% {
+            transform: translate(-50px, 0) rotate(0deg);
+            opacity: 1;
+        }
+    }
+
+    @keyframes snakeRight {
+        0% {
+            transform: translate(500px, 150px) rotate(15deg);
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        30% {
+            transform: translate(300px, 80px) rotate(-10deg);
+        }
+        50% {
+            transform: translate(150px, -40px) rotate(8deg);
+        }
+        70% {
+            transform: translate(70px, 15px) rotate(-5deg);
+        }
+        100% {
+            transform: translate(50px, 0) rotate(0deg);
+            opacity: 1;
+        }
+    }
+
     .about-logo {
         width: 120px;
         height: 40px;
@@ -614,5 +787,62 @@ body.menu-open {
     .mobile-nav a {
         font-size: 20px;
         gap: 24px;
+    }
+
+    /* Logo animation adjustments for small mobile */
+    .logo-part {
+        width: 160px;
+        height: 54px;
+    }
+
+    .logo-part img {
+        width: 160px;
+        height: 54px;
+    }
+
+    @keyframes snakeLeft {
+        0% {
+            transform: translate(-400px, -120px) rotate(-15deg);
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        30% {
+            transform: translate(-240px, -60px) rotate(10deg);
+        }
+        50% {
+            transform: translate(-120px, 30px) rotate(-8deg);
+        }
+        70% {
+            transform: translate(-50px, -10px) rotate(5deg);
+        }
+        100% {
+            transform: translate(-40px, 0) rotate(0deg);
+            opacity: 1;
+        }
+    }
+
+    @keyframes snakeRight {
+        0% {
+            transform: translate(400px, 120px) rotate(15deg);
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        30% {
+            transform: translate(240px, 60px) rotate(-10deg);
+        }
+        50% {
+            transform: translate(120px, -30px) rotate(8deg);
+        }
+        70% {
+            transform: translate(50px, 10px) rotate(-5deg);
+        }
+        100% {
+            transform: translate(40px, 0) rotate(0deg);
+            opacity: 1;
+        }
     }
 }

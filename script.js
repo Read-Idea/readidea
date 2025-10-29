@@ -1,3 +1,13 @@
+// Logo Animation Control
+const logoAnimationContainer = document.querySelector('.logo-animation-container');
+
+if (logoAnimationContainer) {
+    // Add fade-out class after animation completes
+    setTimeout(() => {
+        logoAnimationContainer.classList.add('fade-out');
+    }, 2500);
+}
+
 // Mobile Menu Toggle
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
