@@ -33,6 +33,10 @@ body {
     background: var(--color-white);
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -55,11 +59,56 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    position: relative;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background: var(--color-black);
+    transition: all 0.3s ease;
+    position: absolute;
+}
+
+.hamburger-line:first-child {
+    transform: translateY(-6px);
+}
+
+.hamburger-line:last-child {
+    transform: translateY(6px);
+}
+
+.hamburger.active .hamburger-line:first-child {
+    transform: rotate(45deg) translateY(0);
+}
+
+.hamburger.active .hamburger-line:last-child {
+    transform: rotate(-45deg) translateY(0);
+}
+
+/* Logo (Center on mobile, left on desktop) */
 .logo {
     width: 150px;
     height: 50px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .logo a {
@@ -72,7 +121,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    object-position: left center;
+    object-position: center;
     transition: opacity 0.3s ease;
 }
 
@@ -80,6 +129,7 @@ body {
     opacity: 0.7;
 }
 
+/* Navigation (Desktop - Left) */
 .nav {
     display: flex;
     gap: 40px;
@@ -115,6 +165,49 @@ body {
     width: 100%;
 }
 
+/* Mobile Menu Overlay */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-white);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+    padding-left: 60px;
+}
+
+.mobile-nav a {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    color: var(--color-black);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav a:hover {
+    color: var(--color-gray-600);
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -145,6 +238,12 @@ body {
     height: 1px;
     background: var(--color-black);
     margin: 0 auto;
+}
+
+/* Page Section (for non-hero pages) */
+.page-section {
+    padding-top: 160px;
+    min-height: calc(100vh - 200px);
 }
 
 /* About Section */
@@ -365,6 +464,10 @@ body {
         padding: 120px 0;
     }
 
+    .page-section {
+        padding-top: 140px;
+    }
+
     .header {
         padding: 16px 0;
     }
@@ -380,6 +483,23 @@ body {
 
     .nav a {
         font-size: 13px;
+    }
+
+    /* Show hamburger on tablet */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        padding-left: 40px;
+    }
+
+    .mobile-nav a {
+        font-size: 28px;
     }
 }
 
@@ -403,6 +523,10 @@ body {
     .vision,
     .contact {
         padding: 100px 0;
+    }
+
+    .page-section {
+        padding-top: 120px;
     }
 
     .hero-title {
@@ -437,12 +561,13 @@ body {
         height: 34px;
     }
 
-    .nav {
-        gap: 20px;
+    .mobile-nav {
+        padding-left: 24px;
     }
 
-    .nav a {
-        font-size: 12px;
+    .mobile-nav a {
+        font-size: 24px;
+        gap: 30px;
     }
 }
 
@@ -482,12 +607,12 @@ body {
         height: 28px;
     }
 
-    .nav {
-        gap: 16px;
+    .mobile-nav {
+        padding-left: 24px;
     }
 
-    .nav a {
-        font-size: 11px;
-        letter-spacing: 0.03em;
+    .mobile-nav a {
+        font-size: 20px;
+        gap: 24px;
     }
 }

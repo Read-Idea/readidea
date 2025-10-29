@@ -1,16 +1,34 @@
-// Smooth scroll behavior
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+// Mobile Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+const body = document.body;
+
+if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        body.classList.toggle('menu-open');
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            body.classList.remove('menu-open');
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    mobileMenu.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            body.classList.remove('menu-open');
         }
     });
-});
+}
 
 // Fade-in animation on scroll
 const observerOptions = {
@@ -27,32 +45,11 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe sections
-document.querySelectorAll('.vision-section, .mission-section, .contact-section').forEach(section => {
+// Observe sections for fade-in animation
+const sectionsToAnimate = document.querySelectorAll('.about, .vision, .contact, .vision-item');
+sectionsToAnimate.forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(30px)';
     section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     observer.observe(section);
 });
-
-// Scroll down indicator auto-hide
-let lastScroll = 0;
-const scrollIndicator = document.querySelector('.scroll-down');
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (scrollIndicator) {
-        if (currentScroll > 100) {
-            scrollIndicator.style.opacity = '0';
-        } else {
-            scrollIndicator.style.opacity = '1';
-        }
-    }
-
-    lastScroll = currentScroll;
-});
-
-// Console branding
-console.log('%creadidea', 'color: #000; font-size: 24px; font-weight: 300; letter-spacing: 0.1em;');
-console.log('%c건강한 내일을 위한 선택', 'color: #737373; font-size: 12px; font-weight: 300;');
