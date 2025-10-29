@@ -247,10 +247,18 @@ body.menu-open {
     transform: translateX(0);
 }
 
+.mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 20px 0;
+}
+
+.mobile-theme-toggle {
+    flex-shrink: 0;
+}
+
 .mobile-menu-close {
-    position: absolute;
-    top: 30px;
-    left: 40px;
     background: none;
     border: none;
     font-size: 36px;
@@ -264,7 +272,6 @@ body.menu-open {
     align-items: center;
     justify-content: center;
     transition: opacity 0.3s ease, color 0.3s ease;
-    z-index: 1000;
 }
 
 .mobile-menu-close:hover {
@@ -276,7 +283,7 @@ body.menu-open {
     flex-direction: column;
     gap: 32px;
     align-items: flex-start;
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .mobile-menu-overlay {
@@ -689,7 +696,7 @@ body.menu-open {
     font-size: 22px;
     font-weight: 700;
     letter-spacing: -0.01em;
-    color: #000000;
+    color: var(--text-color);
     margin-bottom: 150px;
     text-align: left;
     padding-left: 200px;
@@ -704,20 +711,21 @@ body.menu-open {
     font-size: 22px;
     font-weight: 400;
     line-height: 1.4;
-    color: #000000;
+    color: var(--text-color);
     letter-spacing: -0.01em;
+    text-align: justify;
 }
 
 .about-main-text p strong {
     font-weight: 700;
-    color: #000000;
+    color: var(--text-color);
 }
 
 .about-footer-text {
     font-size: 22px;
     font-weight: 400;
     line-height: 1.4;
-    color: #000000;
+    color: var(--text-color);
     text-align: left;
     letter-spacing: -0.01em;
 }
@@ -762,14 +770,14 @@ body.menu-open {
     font-weight: 400;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #000000;
+    color: var(--text-color);
 }
 
 .contact-item a {
     font-size: 28px;
     font-weight: 300;
     letter-spacing: -0.01em;
-    color: #000000;
+    color: var(--text-color);
     text-decoration: none;
     display: inline-block;
     border-bottom: 1px solid transparent;
@@ -777,8 +785,8 @@ body.menu-open {
 }
 
 .contact-item a:hover {
-    color: #404040;
-    border-bottom-color: #a3a3a3;
+    color: var(--color-gray-600);
+    border-bottom-color: var(--color-gray-400);
 }
 
 /* Footer */
@@ -797,7 +805,7 @@ body.menu-open {
     font-size: 11px;
     font-weight: 300;
     letter-spacing: 0.1em;
-    color: #000000;
+    color: var(--text-color);
 }
 
 /* Responsive Design */
