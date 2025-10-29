@@ -286,7 +286,7 @@ body.menu-open {
     flex-direction: column;
     gap: 32px;
     align-items: flex-start;
-    margin-top: 80px;
+    margin-top: 120px;
 }
 
 .mobile-menu-overlay {
@@ -675,7 +675,7 @@ body.menu-open {
 
 /* About Section */
 .about {
-    padding: 350px 0 160px 0;
+    padding: 380px 0 160px 0;
     background: var(--section-bg);
     border-top: 1px solid var(--border-color);
     transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -710,13 +710,13 @@ body.menu-open {
     font-weight: 700;
     letter-spacing: -0.01em;
     color: var(--text-color);
-    margin-bottom: 150px;
+    margin-bottom: 300px;
     text-align: left;
     padding-left: 200px;
 }
 
 .about-main-text {
-    margin-bottom: 350px;
+    margin-bottom: 450px;
     max-width: 530px;
 }
 
@@ -861,16 +861,17 @@ body.menu-open {
 }
 
 @media (max-width: 1024px) {
-    .about {
-        padding: 350px 0 160px 0;
-    }
-    
     .contact {
         padding: 120px 0;
     }
 
     .page-section {
         padding-top: 140px;
+    }
+
+    /* About section - PC 간격 완전히 유지 (page-section 덮어쓰기) */
+    .about.page-section {
+        padding: 350px 0 160px 0 !important;
     }
 
     .header {
@@ -922,7 +923,7 @@ body.menu-open {
     }
 
     .mobile-nav {
-        margin-top: 60px;
+        margin-top: 100px;
         gap: 28px;
     }
 
@@ -945,10 +946,6 @@ body.menu-open {
         gap: 40px;
     }
 
-    .about {
-        padding: 300px 0 120px 0;
-    }
-    
     .contact {
         padding: 100px 0;
     }
@@ -957,21 +954,39 @@ body.menu-open {
         padding-top: 120px;
     }
 
+    /* About section - PC 간격 완전히 유지 (page-section 덮어쓰기) */
+    .about.page-section {
+        padding: 350px 0 160px 0 !important;
+    }
+
     /* Hero logo animation - responsive size */
     .hero-letter {
         font-size: 8vw;
     }
 
+    /* About logo - 모바일용 크기 축소 */
+    .about-logo-image {
+        max-width: 250px; /* 350px → 250px */
+    }
+
+    /* About pronunciation - PC 간격 유지, 폰트만 축소 */
     .about-pronunciation {
-        font-size: 15px;
+        font-size: 16px; /* 22px → 16px */
+        margin-bottom: 150px; /* PC와 동일 */
+        padding-left: 200px; /* PC와 동일 */
+    }
+
+    /* About main text - PC 간격 유지, 폰트만 축소 */
+    .about-main-text {
+        margin-bottom: 350px; /* PC와 동일 */
     }
 
     .about-main-text p {
-        font-size: 17px;
+        font-size: 17px; /* 22px → 17px */
     }
 
     .about-footer-text {
-        font-size: 13px;
+        font-size: 16px; /* 22px → 16px */
     }
 
     .contact-item a {
@@ -998,7 +1013,7 @@ body.menu-open {
     }
 
     .mobile-nav {
-        margin-top: 50px;
+        margin-top: 90px;
         gap: 24px;
     }
 
@@ -1008,21 +1023,29 @@ body.menu-open {
 }
 
 @media (max-width: 480px) {
-    .about-pronunciation {
-        font-size: 14px;
-        margin-bottom: 40px;
+    /* About logo - 더 작은 모바일용 크기 */
+    .about-logo-image {
+        max-width: 200px; /* 250px → 200px */
     }
 
+    /* About pronunciation - PC 간격 유지, 폰트만 축소 */
+    .about-pronunciation {
+        font-size: 14px; /* 22px → 14px */
+        margin-bottom: 150px; /* PC와 동일 */
+        padding-left: 200px; /* PC와 동일 */
+    }
+
+    /* About main text - PC 간격 유지, 폰트만 축소 */
     .about-main-text {
-        margin-bottom: 60px;
+        margin-bottom: 350px; /* PC와 동일 */
     }
 
     .about-main-text p {
-        font-size: 15px;
+        font-size: 15px; /* 22px → 15px */
     }
 
     .about-footer-text {
-        font-size: 12px;
+        font-size: 14px; /* 22px → 14px */
     }
 
     .contact-item a {
@@ -1047,7 +1070,7 @@ body.menu-open {
     }
 
     .mobile-nav {
-        margin-top: 40px;
+        margin-top: 80px;
         gap: 20px;
     }
 
