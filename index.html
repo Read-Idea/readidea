@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>readidea - 건강한 내일을 위한 선택</title>
+    <title>readidea</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
 </head>
@@ -12,11 +12,18 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <!-- Hamburger Menu (Mobile) -->
-                <button class="hamburger" aria-label="메뉴">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
+                <!-- Mobile Controls (Left on Mobile) -->
+                <div class="mobile-controls">
+                    <!-- Dark Mode Toggle (Mobile) -->
+                    <button class="theme-toggle mobile-theme-toggle" aria-label="다크 모드 토글">
+                        <div class="theme-toggle-slider"></div>
+                    </button>
+                    <!-- Hamburger Menu (Mobile) -->
+                    <button class="hamburger" aria-label="메뉴">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
 
                 <!-- Logo (Left) -->
                 <div class="logo">
@@ -32,8 +39,8 @@
                         <a href="about.html">ABOUT</a>
                         <a href="contact.html">CONTACT</a>
                     </nav>
-                    <!-- Dark Mode Toggle -->
-                    <button class="theme-toggle" aria-label="다크 모드 토글">
+                    <!-- Dark Mode Toggle (Desktop) -->
+                    <button class="theme-toggle desktop-theme-toggle" aria-label="다크 모드 토글">
                         <div class="theme-toggle-slider"></div>
                     </button>
                 </div>
@@ -44,16 +51,11 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu">
         <div class="mobile-menu-content">
-            <div class="mobile-menu-header">
-                <button class="theme-toggle mobile-theme-toggle" aria-label="다크 모드 토글">
-                    <div class="theme-toggle-slider"></div>
-                </button>
-                <button class="mobile-menu-close" aria-label="메뉴 닫기">×</button>
-            </div>
+            <button class="mobile-menu-close" aria-label="메뉴 닫기">×</button>
             <nav class="mobile-nav">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html">< Home</a>
+                <a href="about.html">< About</a>
+                <a href="contact.html">< Contact</a>
             </nav>
         </div>
         <div class="mobile-menu-overlay"></div>
