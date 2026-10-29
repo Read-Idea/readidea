@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보처리방침 - readidea</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
+    <style>
+        .legal-content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding-bottom: 160px;
+        }
+        .legal-content h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .legal-meta {
+            color: var(--color-gray-500);
+            font-size: 0.95rem;
+            margin-bottom: 48px;
+        }
+        .legal-content h2 {
+            font-size: 1.25rem;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .legal-content h3 {
+            font-size: 1.05rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+        .legal-content p {
+            margin-bottom: 14px;
+            line-height: 1.75;
+        }
+        .legal-content ul,
+        .legal-content ol {
+            margin: 0 0 16px 1.4em;
+        }
+        .legal-content li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .legal-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 24px;
+            font-size: 0.92rem;
+        }
+        .legal-content th,
+        .legal-content td {
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .legal-content th {
+            background: var(--color-gray-100);
+        }
+        [data-theme="dark"] .legal-content th {
+            background: var(--color-gray-900);
+        }
+        .legal-note {
+            margin-top: 40px;
+            padding: 16px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--color-gray-500);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo and Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Mobile Controls (Left on Mobile) -->
+                <div class="mobile-controls">
+                    <!-- Dark Mode Toggle (Mobile) -->
+                    <button class="theme-toggle mobile-theme-toggle" aria-label="다크 모드 토글">
+                        <div class="theme-toggle-slider"></div>
+                    </button>
+                    <!-- Hamburger Menu (Mobile) -->
+                    <button class="hamburger" aria-label="메뉴">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+
+                <!-- Logo (Left) -->
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="web_logo.png" alt="readidea">
+                    </a>
+                </div>
+
+                <!-- Navigation (Right on Desktop) -->
+                <div class="nav-wrapper">
+                    <nav class="nav">
+                        <a href="index.html">HOME</a>
+                        <a href="about.html">ABOUT</a>
+                        <a href="contact.html">CONTACT</a>
+                    </nav>
+                    <!-- Dark Mode Toggle (Desktop) -->
+                    <button class="theme-toggle desktop-theme-toggle" aria-label="다크 모드 토글">
+                        <div class="theme-toggle-slider"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="mobile-menu-close" aria-label="메뉴 닫기">×</button>
+            <nav class="mobile-nav">
+                <a href="index.html">&lt; Home</a>
+                <a href="about.html">&lt; About</a>
+                <a href="contact.html">&lt; Contact</a>
+            </nav>
+        </div>
+        <div class="mobile-menu-overlay"></div>
+    </div>
+
+    <!-- Privacy Policy Section -->
+    <section class="page-section">
+        <div class="container">
+            <div class="legal-content">
+                <h1>블루블루이즘 개인정보처리방침</h1>
+                <p class="legal-meta">시행일자: 2026-11-01 · 작성: 이은규(EUNGYU LEE)</p>
+
+                <h2>제1조 (수집하는 개인정보 항목)</h2>
+                <p>블루블루이즘(이하 "서비스")은 다음과 같은 개인정보를 수집합니다.</p>
+                <table>
+                    <thead>
+                        <tr><th>구분</th><th>수집 항목</th><th>수집 시점</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>회원가입·로그인</td><td>이메일 주소, 소셜 로그인(Google·Apple) 식별자</td><td>회원가입 시</td></tr>
+                        <tr><td>프로필</td><td>닉네임, 생일(선택), 성격유형 진단 결과</td><td>프로필 설정 시</td></tr>
+                        <tr><td>가족 공간</td><td>가족 공간 이름, 초대코드, 구성원 간 관계, 가족 사진</td><td>가족 공간 생성·가입 시</td></tr>
+                        <tr><td>게임 이용 활동</td><td>재화·레벨·보유 아이템, 퀘스트 진행상황, 작물·나무 키우기 기록, 오늘의 질문 답변·댓글·좋아요, 찌르기·하이파이브 기록, 달력 퍼즐 점수, 뽑기(가챠) 기록, 온보딩 설문 응답</td><td>앱 이용 중</td></tr>
+                        <tr><td>친구 관계</td><td>친구 목록</td><td>친구 추가 시</td></tr>
+                        <tr><td>문의하기</td><td>문의 제목·내용, 지원 ID, 이메일(선택 입력)</td><td>문의 접수 시</td></tr>
+                        <tr><td>기기·푸시 정보</td><td>푸시 알림 토큰, 앱 버전, 기기 모델명, OS 버전, 플랫폼 구분(Android/iOS)</td><td>앱 설치 및 알림 수신 동의 시</td></tr>
+                        <tr><td>분석·진단 정보(자동 수집)</td><td>앱 사용 이벤트, 오류(크래시) 리포트</td><td>앱 이용 중 자동 수집</td></tr>
+                    </tbody>
+                </table>
+                <p>위 항목 중 가족 사진, 친구 관계, 게임 이용 활동은 <strong>같은 가족 공간 구성원 간에만 공유</strong>되며, 서비스 운영 목적 외의 제3자에게 공개되지 않습니다.</p>
+
+                <h2>제2조 (개인정보의 수집 및 이용 목적)</h2>
+                <p>서비스는 수집한 개인정보를 다음 목적으로만 이용합니다.</p>
+                <ol>
+                    <li>회원 가입 및 관리 — 본인 확인, 부정 이용 방지, 가입 의사 확인</li>
+                    <li>가족 공간 서비스 제공 — 가족 구성원 연결, 오늘의 질문·답변 공유, 가족 트리 관리</li>
+                    <li>게임 콘텐츠 제공 — 작물·나무 키우기, 퀘스트, 달력 퍼즐, 가챠 등 핵심 기능 운영</li>
+                    <li>친구 기능 제공 — 친구 추가 및 상호작용(찌르기, 하이파이브 등)</li>
+                    <li>알림 발송 — 가족 활동 알림, 서비스 공지(푸시 알림)</li>
+                    <li>고객 문의 응대 — 문의 접수 및 답변, 기술 지원</li>
+                    <li>서비스 개선 — 이용 통계 분석, 오류(크래시) 진단 및 수정</li>
+                    <li>부정 이용 방지 및 서비스 안정성 확보</li>
+                </ol>
+
+                <h2>제3조 (개인정보의 보유 및 이용 기간)</h2>
+                <p>이용자가 회원 탈퇴를 요청하면, 관계 법령에서 별도의 보존 의무를 정하지 않는 한 수집된 개인정보는 즉시 파기됩니다. 탈퇴 처리 시 계정과 연결된 프로필, 가족 공간 참여 정보, 게임 활동 기록, 문의 내역, 기기 푸시 토큰 등이 함께 자동으로 삭제됩니다(계정 삭제와 연동되어 자동 처리).</p>
+                <p>다만 다음의 경우에는 명시한 기간 동안 예외적으로 보관합니다.</p>
+                <ul>
+                    <li>관계 법령의 규정에 의하여 보존할 필요가 있는 경우 해당 법령에서 정한 기간 동안 보관합니다. 현재 서비스는 유료 결제 기능을 제공하지 않아 전자상거래법상 거래기록 보존 의무가 적용되지 않으며, 향후 결제 기능 도입 시 관련 법령에 따라 보관기간을 별도로 고지합니다.</li>
+                    <li>서비스 부정이용 방지를 위해 필요한 경우 관련 기록을 최소한의 범위에서 보관할 수 있습니다.</li>
+                </ul>
+
+                <h2>제4조 (개인정보 처리위탁 및 국외 이전)</h2>
+                <p>서비스는 원활한 업무 처리를 위해 다음과 같이 개인정보 처리를 외부 업체에 위탁하고 있습니다.</p>
+                <table>
+                    <thead>
+                        <tr><th>수탁업체</th><th>위탁업무 내용</th><th>보유·이용 기간</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Supabase, Inc.</td><td>회원 인증, 데이터베이스 운영, 파일(가족 사진 등) 저장</td><td>회원 탈퇴 시 또는 위탁계약 종료 시까지</td></tr>
+                        <tr><td>Google LLC(Firebase)</td><td>앱 사용 통계 분석(Analytics), 오류 진단(Crashlytics), 푸시 알림 발송(Cloud Messaging)</td><td>회원 탈퇴 시 또는 위탁계약 종료 시까지</td></tr>
+                    </tbody>
+                </table>
+                <p>위 수탁업체는 모두 해외(미국)에 서버를 두고 있어, 수집된 개인정보가 국외에 이전·보관될 수 있습니다. 위탁계약 체결 시 개인정보보호 관련 법규의 준수, 개인정보에 관한 제3자 제공 금지 및 책임 등을 명확히 규정하고 있습니다.</p>
+
+                <h2>제5조 (이용자의 권리와 행사방법)</h2>
+                <p>이용자는 언제든지 자신의 개인정보를 조회·수정하거나 삭제(회원 탈퇴)를 요청할 수 있으며, 처리정지를 요청할 수도 있습니다.</p>
+                <ol>
+                    <li>개인정보 조회·수정: 앱 내 계정 설정 화면에서 닉네임, 생일 등을 직접 변경할 수 있습니다.</li>
+                    <li>회원 탈퇴(개인정보 삭제): 앱 내 설정 &gt; 계정 &gt; 회원 탈퇴 메뉴에서 직접 처리할 수 있으며, 탈퇴 즉시 관련 개인정보가 파기됩니다.</li>
+                    <li>기타 열람·정정·삭제·처리정지 요청: 제7조의 연락처로 문의하면 지체 없이 조치합니다.</li>
+                </ol>
+                <p>이용자의 요청에 따라 해지 또는 삭제된 개인정보는 제3조에서 명시한 바에 따라 처리하고 그 외의 용도로 열람 또는 이용할 수 없도록 처리합니다.</p>
+
+                <h2>제6조 (개인정보의 파기절차 및 방법)</h2>
+                <p>서비스는 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.</p>
+                <ol>
+                    <li>파기절차: 이용자가 회원 탈퇴를 요청하면 데이터베이스에서 해당 계정 및 연결된 개인정보가 즉시 삭제 처리됩니다. 별도의 보관기간 없이 삭제되며(제3조 단서에 해당하는 경우는 예외), 문의 내역은 회원 탈퇴 시 계정과 함께 삭제됩니다.</li>
+                    <li>파기방법: 전자적 파일 형태로 저장된 개인정보는 복구가 불가능한 방법으로 영구 삭제합니다.</li>
+                </ol>
+
+                <h2>제7조 (개인정보 보호책임자 및 연락처)</h2>
+                <p>서비스는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 이용자의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
+                <ul>
+                    <li>개인정보 보호책임자: 이은규(EUNGYU LEE)</li>
+                    <li>연락처(이메일): <a href="mailto:contact@readidea.co.kr">contact@readidea.co.kr</a></li>
+                </ul>
+                <p>이용자는 서비스를 이용하면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자에게 문의할 수 있습니다. 서비스는 이용자의 문의에 대해 지체 없이 답변 및 처리해드립니다.</p>
+
+                <h2>제8조 (아동의 개인정보)</h2>
+                <p>본 서비스는 가족 구성원(주로 성인 보호자)이 계정을 생성하여 이용하는 것을 전제로 설계되었으며, 만 14세 미만 아동이 독자적으로 회원가입하거나 개인정보를 직접 제공하는 것을 예정하지 않습니다.</p>
+                <p>서비스 내 "가족 트리", "가족 사진" 등 가족 구성원에 관한 정보를 등록하는 기능이 있으나, 이는 계정을 보유한 보호자가 가족 소개 목적으로 직접 입력하는 것이며, 아동 본인이 자신의 개인정보를 직접 수집·제공하는 절차가 아닙니다.</p>
+                <p>만약 만 14세 미만 아동의 개인정보가 보호자의 동의 없이 수집된 사실을 발견하는 경우, 제7조의 연락처로 알려주시면 지체 없이 해당 정보를 삭제하는 등 필요한 조치를 취하겠습니다.</p>
+
+                <h2>제9조 (고지의 의무)</h2>
+                <p>현 개인정보처리방침 내용은 법령·정책 또는 보안기술의 변경에 따라 추가·삭제 및 수정이 있을 수 있으며, 변경사항의 시행 7일 전부터 앱 내 공지사항 또는 알림을 통하여 고지합니다. 다만, 이용자 권리의 중요한 변경이 있는 경우에는 최소 30일 전에 고지합니다.</p>
+
+                <h3>부칙</h3>
+                <p>본 방침은 2026-11-01부터 시행됩니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 readidea. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
