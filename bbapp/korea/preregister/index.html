@@ -69,35 +69,41 @@
   .pr-input {
     height: 43px;
     border-radius: 7px;
-    border: 1.5px solid #111111;
+    border: 1px solid #111111;
     padding: 0 16px;
     font-size: 15px;
     width: 100%;
   }
   .pr-input.pr-error { border-color: #ff3131; color: #ff3131; }
 
-  .pr-consent { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
-  .pr-consent label { display: flex; align-items: flex-start; gap: 8px; font-size: 12.5px; }
-  .pr-consent input[type="checkbox"] { margin-top: 2px; width: 16px; height: 16px; flex-shrink: 0; }
-  .pr-consent .req { color: #111111; }
-  .pr-consent .opt { color: #8a8575; }
-
-  .pr-btn-fixed-slot {
-    position: absolute;
-    left: 0; right: 0;
-    bottom: calc(140px + env(safe-area-inset-bottom, 0px));
+  .pr-consent {
     display: flex;
-    justify-content: center;
-    z-index: 40;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 100%;
+    margin: 80px auto 0;
+    gap: 2px;
   }
-  .pr-btn-wrap { position: relative; padding-bottom: 4px; width: 138px; max-width: calc(100% - 86px); }
+  .pr-consent label { display: flex; align-items: center; gap: 4px; font-size: 12px; }
+  .pr-consent input[type="checkbox"] {
+    -webkit-appearance: none; appearance: none;
+    width: 8px; height: 8px; flex-shrink: 0;
+    border: 1px solid #111111; border-radius: 0; background: #ffffff;
+    cursor: pointer;
+  }
+  .pr-consent input[type="checkbox"]:checked { background: #545454; }
+  .pr-consent .req { color: #111111; }
+  .pr-consent .opt { color: #111111; }
+
+  .pr-btn-wrap { position: relative; padding-bottom: 1px; width: 138px; max-width: calc(100% - 86px); margin: 15px auto 0; }
+  #pr-back-btn-wrap { margin-top: 145px; }
   .pr-btn-bottom, .pr-btn-top {
     height: 30px;
     border-radius: 15px;
-    border: 1.5px solid #000000;
+    border: 1px solid #000000;
     background: #ffffff;
   }
-  .pr-btn-bottom { transform: translateY(4px); }
+  .pr-btn-bottom { transform: translateY(1px); }
   .pr-btn-top {
     position: absolute;
     inset: 0 0 auto 0;
@@ -109,14 +115,14 @@
     transition: transform .08s ease;
   }
   .pr-btn-top:disabled { cursor: not-allowed; }
-  .pr-btn-top.pressed { transform: translateY(4px); }
+  .pr-btn-top.pressed { transform: translateY(1px); }
   .pr-btn-wrap.active .pr-btn-bottom,
   .pr-btn-wrap.active .pr-btn-top { background: #00e6ee; }
   .pr-btn-veil {
     position: absolute;
     inset: 0 0 auto 0;
     width: 100%;
-    height: calc(30px + 4px);
+    height: calc(30px + 1px);
     border-radius: 15px;
     background: rgba(255,255,255,0.55);
     pointer-events: none;
@@ -124,6 +130,28 @@
     opacity: 1;
   }
   .pr-btn-wrap.active .pr-btn-veil { opacity: 0; }
+
+  .pr-popup-btn-row { display: flex; gap: 10px; width: 100%; }
+  .pr-popup-btn-wrap { position: relative; flex: 1; padding-bottom: 1px; }
+  .pr-popup-btn-bottom, .pr-popup-btn-top {
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid #000000;
+  }
+  .pr-popup-btn-bottom { transform: translateY(1px); }
+  .pr-popup-btn-top {
+    position: absolute;
+    inset: 0 0 auto 0;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: transform .08s ease;
+  }
+  .pr-popup-btn-top.pressed { transform: translateY(1px); }
+  .pr-popup-btn-yes .pr-popup-btn-bottom, .pr-popup-btn-yes .pr-popup-btn-top { background: #00e6ee; color: #000000; }
+  .pr-popup-btn-no .pr-popup-btn-bottom { background: #000000; }
+  .pr-popup-btn-no .pr-popup-btn-top { background: #ffffff; color: #000000; }
 
   .pr-hidden { display: none !important; }
 
@@ -142,7 +170,7 @@
     max-width: 420px;
     height: 90px;
     background: #ffffff;
-    border: 1.5px solid #111111;
+    border: 1px solid #111111;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.18);
     display: flex;
@@ -152,16 +180,12 @@
   }
   .pr-popup-close {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
+    top: 10px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
     border: none;
     background: transparent;
-    font-size: 25px;
-    line-height: 1;
-    color: #111111;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -177,6 +201,19 @@
     line-height: 1.5;
     white-space: nowrap;
   }
+
+  .pr-popup-marketing {
+    width: calc(100% - 29px - 29px);
+    max-width: 420px;
+    min-height: 100px;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 30px 20px 15px;
+  }
+  .pr-popup-marketing .pr-popup-text { white-space: normal; font-size: 13px; }
 </style>
 </head>
 <body>
@@ -193,6 +230,10 @@
       <div id="pr-hero-done" class="pr-hidden">
         <h1 class="pr-title pr-title-done" id="pr-done-title"></h1>
         <p class="pr-done-body">기재하신 메일로 환영 편지를 보내드렸어요&lt;3<br>그럼 곧 마을에서 뵈어요.<br>그때 사전예약 선물도 꼭 드리고 싶어요.</p>
+        <div class="pr-btn-wrap" id="pr-back-btn-wrap">
+          <div class="pr-btn-bottom"></div>
+          <button class="pr-btn-top" id="pr-back-btn" type="button">돌아가기</button>
+        </div>
       </div>
     </div>
 
@@ -219,12 +260,18 @@
         <div class="pr-consent">
           <label>
             <input type="checkbox" id="pr-agree-required" required />
-            <span class="req">[필수] 개인정보 수집·이용에 동의합니다 (<a href="/privacy-policy.html" id="pr-privacy-link" target="_blank" rel="noopener">자세히</a>)</span>
+            <span class="req">(필수) <a href="/privacy-policy.html" id="pr-privacy-link" target="_blank" rel="noopener">개인정보 수집 및 이용</a></span>
           </label>
           <label>
             <input type="checkbox" id="pr-agree-marketing" />
-            <span class="opt">[선택] 출시 소식·혜택 안내 이메일 수신에 동의합니다</span>
+            <span class="opt">혜택 및 이벤트 소식 받기</span>
           </label>
+        </div>
+
+        <div class="pr-btn-wrap" id="pr-btn-wrap">
+          <div class="pr-btn-bottom"></div>
+          <button class="pr-btn-top" id="pr-submit-btn" form="pr-form" type="submit" disabled>사전예약 신청</button>
+          <div class="pr-btn-veil"></div>
         </div>
       </div>
     </form>
@@ -232,24 +279,33 @@
     <p style="text-align: center; font-size: 10px; color: #b7b1a0; padding: 16px 20px 24px;">서체: PyeojinGothic by 서지환, <a href="https://scripts.sil.org/OFL" target="_blank" rel="noopener">SIL OFL 1.1</a></p>
 
   </div>
-
-  <div class="pr-btn-fixed-slot">
-    <div class="pr-btn-wrap" id="pr-btn-wrap">
-      <div class="pr-btn-bottom"></div>
-      <button class="pr-btn-top" id="pr-submit-btn" form="pr-form" type="submit" disabled>사전예약 신청</button>
-      <div class="pr-btn-veil"></div>
-    </div>
-    <div class="pr-btn-wrap pr-hidden" id="pr-back-btn-wrap">
-      <div class="pr-btn-bottom"></div>
-      <button class="pr-btn-top" id="pr-back-btn" type="button">돌아가기</button>
-    </div>
-  </div>
 </div>
 
 <div class="pr-popup-veil pr-hidden" id="pr-popup-veil">
   <div class="pr-popup">
-    <button class="pr-popup-close" id="pr-popup-close" type="button" aria-label="닫기">×</button>
+    <button class="pr-popup-close" id="pr-popup-close" type="button" aria-label="닫기">
+      <svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"><line x1="2" y1="2" x2="22" y2="22" stroke="#111111" stroke-width="1.8" stroke-linecap="round" /><line x1="22" y1="2" x2="2" y2="22" stroke="#111111" stroke-width="1.8" stroke-linecap="round" /></svg>
+    </button>
     <p class="pr-popup-text">이미 사전예약을 완료하신 이메일 주소입니다.</p>
+  </div>
+</div>
+
+<div class="pr-popup-veil pr-hidden" id="pr-marketing-popup-veil">
+  <div class="pr-popup pr-popup-marketing">
+    <button class="pr-popup-close" id="pr-marketing-popup-close" type="button" aria-label="닫기">
+      <svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"><line x1="2" y1="2" x2="22" y2="22" stroke="#111111" stroke-width="1.8" stroke-linecap="round" /><line x1="22" y1="2" x2="2" y2="22" stroke="#111111" stroke-width="1.8" stroke-linecap="round" /></svg>
+    </button>
+    <p class="pr-popup-text" id="pr-marketing-popup-text"></p>
+    <div class="pr-popup-btn-row">
+      <div class="pr-popup-btn-wrap pr-popup-btn-yes">
+        <div class="pr-popup-btn-bottom"></div>
+        <button class="pr-popup-btn-top" id="pr-marketing-yes-btn" type="button">예</button>
+      </div>
+      <div class="pr-popup-btn-wrap pr-popup-btn-no">
+        <div class="pr-popup-btn-bottom"></div>
+        <button class="pr-popup-btn-top" id="pr-marketing-no-btn" type="button">아니오</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -267,7 +323,6 @@
   var emailError = document.getElementById('pr-email-error');
   var btnWrap = document.getElementById('pr-btn-wrap');
   var submitBtn = document.getElementById('pr-submit-btn');
-  var backBtnWrap = document.getElementById('pr-back-btn-wrap');
   var backBtn = document.getElementById('pr-back-btn');
   var form = document.getElementById('pr-form');
   var fieldsBlock = document.getElementById('pr-form-fields');
@@ -276,6 +331,11 @@
   var doneTitle = document.getElementById('pr-done-title');
   var popupVeil = document.getElementById('pr-popup-veil');
   var popupClose = document.getElementById('pr-popup-close');
+  var marketingPopupVeil = document.getElementById('pr-marketing-popup-veil');
+  var marketingPopupClose = document.getElementById('pr-marketing-popup-close');
+  var marketingPopupText = document.getElementById('pr-marketing-popup-text');
+  var marketingYesBtn = document.getElementById('pr-marketing-yes-btn');
+  var marketingNoBtn = document.getElementById('pr-marketing-no-btn');
 
   function isValidEmail(v) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
@@ -310,29 +370,43 @@
     el.addEventListener('change', updateButtonState);
   });
 
-  submitBtn.addEventListener('mousedown', function () { submitBtn.classList.add('pressed'); });
-  ['mouseup', 'mouseleave'].forEach(function (evt) {
-    submitBtn.addEventListener(evt, function () { submitBtn.classList.remove('pressed'); });
-  });
-  submitBtn.addEventListener('touchstart', function () { submitBtn.classList.add('pressed'); });
-  submitBtn.addEventListener('touchend', function () { submitBtn.classList.remove('pressed'); });
+  function wirePress(btn) {
+    btn.addEventListener('mousedown', function () { btn.classList.add('pressed'); });
+    ['mouseup', 'mouseleave'].forEach(function (evt) {
+      btn.addEventListener(evt, function () { btn.classList.remove('pressed'); });
+    });
+    btn.addEventListener('touchstart', function () { btn.classList.add('pressed'); });
+    btn.addEventListener('touchend', function () { btn.classList.remove('pressed'); });
+  }
+  wirePress(submitBtn);
+  wirePress(backBtn);
+  wirePress(marketingYesBtn);
+  wirePress(marketingNoBtn);
 
   popupClose.addEventListener('click', function () {
     popupVeil.classList.add('pr-hidden');
   });
 
+  marketingPopupClose.addEventListener('click', function () {
+    marketingPopupVeil.classList.add('pr-hidden');
+  });
+  marketingYesBtn.addEventListener('click', function () {
+    agreeMarketing.checked = true;
+    marketingPopupVeil.classList.add('pr-hidden');
+    doSubmit();
+  });
+  marketingNoBtn.addEventListener('click', function () {
+    marketingPopupVeil.classList.add('pr-hidden');
+    doSubmit();
+  });
+
   backBtn.addEventListener('click', function () {
     heroDone.classList.add('pr-hidden');
     heroWelcome.classList.remove('pr-hidden');
-    backBtnWrap.classList.add('pr-hidden');
-    btnWrap.classList.remove('pr-hidden');
     fieldsBlock.classList.remove('pr-hidden');
   });
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (submitBtn.disabled) return;
-
+  function doSubmit() {
     var payload = {
       name: nameInput.value.trim(),
       email: emailInput.value.trim(),
@@ -357,8 +431,6 @@
         heroWelcome.classList.add('pr-hidden');
         heroDone.classList.remove('pr-hidden');
         fieldsBlock.classList.add('pr-hidden');
-        btnWrap.classList.add('pr-hidden');
-        backBtnWrap.classList.remove('pr-hidden');
         return;
       }
       if (res.status === 409) {
@@ -372,6 +444,19 @@
       updateButtonState();
       alert('네트워크 오류로 신청하지 못했어요. 잠시 후 다시 시도해주세요.');
     });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitBtn.disabled) return;
+
+    if (!agreeMarketing.checked) {
+      marketingPopupText.innerHTML = nameInput.value.trim() + '님을 맞이할 준비가 되면<br>메일로 알려드릴까요?';
+      marketingPopupVeil.classList.remove('pr-hidden');
+      return;
+    }
+
+    doSubmit();
   });
 
   updateButtonState();
