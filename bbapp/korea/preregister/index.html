@@ -429,6 +429,7 @@
     heroDone.classList.add('pr-hidden');
     heroWelcome.classList.remove('pr-hidden');
     fieldsBlock.classList.remove('pr-hidden');
+    updateButtonState(); // doSubmit()이 성공 시엔 제출 버튼을 다시 안 풀어줘서, 돌아가기 후 재제출이 막혀있던 버그 수정
   });
 
   function doSubmit() {
